@@ -1,0 +1,19 @@
+apiVersion: ec2.aws.crossplane.io/v1beta1
+kind: SecurityGroup
+metadata:
+  name: my-ec2-sg
+spec:
+  forProvider:
+    region: us-east-1
+    vpcIdRef:
+      name: my-vpc  
+    groupName: my-ec2-sg
+    description: Security Group for my EC2 instance
+    egress:
+      - fromPort: 443
+        toPort: 443
+        ipProtocol: tcp
+        ipRanges:
+          - cidrIp: 10.0.0.0/8
+  providerConfigRef:
+    name: default
