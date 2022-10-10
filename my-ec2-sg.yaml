@@ -2,6 +2,7 @@ apiVersion: ec2.aws.crossplane.io/v1beta1
 kind: SecurityGroup
 metadata:
   name: my-ec2-sg
+  namespace: my-crossplane
 spec:
   forProvider:
     region: us-east-1
